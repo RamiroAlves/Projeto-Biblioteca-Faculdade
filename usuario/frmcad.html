@@ -96,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Busca de Usuários</h1>
+              <h1 class="m-0 text-dark">Cadastro de Usuários</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -110,58 +110,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-lg-12">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <form name="f1" action="#" method="POST">
-                    <div class="form-group"><a href="frmcad.html" class="btn btn-lg btn-outline-success float-right"><i
-                          class="fa fa-plus"></i>&nbsp;Novo</a>
-                      <a href="../principal.html" class="btn btn-lg btn-default"><i
+                  <form id="" name="f1" action="#" method="POST">
+                    <div class="form-group">
+                      <a href="frmbusca.html" class="btn btn-lg btn-default"><i
                           class="fa fa-arrow-left"></i>&nbsp;Voltar</a>
                     </div>
-                </div>
-                <div class="form-group mr-2 ml-2">
-                  <label for="">Informe um nome para pesquisa</label>
-                  <div class="input-group mb-2">
-                    <input name="" type="text" class="form-control" placeholder="Digite aqui um nome para busca"
-                      required>
-                    <span class="input-group-btn"><button class="btn btn-outline-primary"><i
-                          class="fa fa-search"></i>&nbsp;Buscar</button></span>
-                  </div>
-                  <!-- Divisória da tabela -->
-                  <div style="overflow: scroll; height: 300px;">
-                    <table class="table table-hover">
-                      <thead class="thead-light">
-                        <tr>
-                          <th>Id</th>
-                          <th>Nome</th>
-                          <th>E-mail</th>
-                          <th>Ações</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>0</td>
-                          <td>Teste</td>
-                          <td>teste@teste.com</td>
-                          <td>
-                            <a href="frmalt.html" class="btn btn-sm btn-outline-primary"><i
-                                class="fa fa-edit"></i>&nbsp;Alterar</a>
-                            <a href="#" class="btn btn-sm btn-outline-danger"><i
-                                class="fa fa-trash"></i>&nbsp;Excluir</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>0</td>
-                          <td>Teste</td>
-                          <td>teste@teste.com</td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-outline-primary"><i
-                                class="fa fa-edit"></i>&nbsp;Alterar</a>
-                            <a href="#" class="btn btn-sm btn-outline-danger"><i
-                                class="fa fa-trash"></i>&nbsp;Excluir</a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                    <div class="form-group mr-2 ml-2">
+                      <div class="col-md-12">
+                        <label for="">Nome</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-append">
+                            <div class="input-group-text">
+                              <span class="fa fa-user"></span>
+                            </div>
+                          </div>
+                          <input name="nome" type="text" class="form-control" placeholder="Informe o nome" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mr-2 ml-2">
+                      <div class="col-md-12">
+                        <label for="">E-mail</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-append">
+                            <div class="input-group-text">
+                              <span class="fa fa-envelope"></span>
+                            </div>
+                          </div>
+                          <input name="email" type="email" class="form-control" placeholder="Informe o e-mail" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mr-2 ml-2">
+                      <div class="col-md-12">
+                        <label for="">Senha</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-append">
+                            <div class="input-group-text">
+                              <span class="fa fa-lock"></span>
+                            </div>
+                          </div>
+                          <input name="senha" type="password" class="form-control" placeholder="Informe a senha"
+                            required>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-lg btn-outline-success"><i
+                          class="fa fa-save"></i>&nbsp;Salvar</button>
+                      <a href="frmbusca.html" class="btn btn-lg btn-outline-danger"><i
+                          class="fa fa-times"></i>&nbsp;Cancelar</a>
+                    </div>
+                    <!-- Divisória da tabela -->
+
                   </form>
                 </div>
               </div><!-- /.card -->
