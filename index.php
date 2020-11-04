@@ -31,9 +31,9 @@
       <div class="card-body login-card-body">
         <p class="login-box-msg">Informe os dados para entrar</p>
 
-        <form name="form1" action="#" method="post">
+        <form name="form1" action="login.php" method="post">
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email">
+            <input name="email" type="email" class="form-control" placeholder="Email">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Senha">
+            <input name="senha" type="password" class="form-control" placeholder="Senha">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>

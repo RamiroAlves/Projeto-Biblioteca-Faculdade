@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
@@ -13,9 +13,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Biblioteca</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -61,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">Usuário</a>
@@ -73,52 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview menu-closed">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Cadastros
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="usuario/frmbusca.html" class="nav-link">
-                    <i class="fas fa-user nav-icon"></i>
-                    <p>Usuários</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-users nav-icon"></i>
-                    <p>Leitores</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-book nav-icon"></i>
-                    <p>Acervo</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview menu-closed">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-id-card"></i>
-                <p>
-                  Empréstimos/Devolução
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-edit nav-icon"></i>
-                    <p>Emprestar</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -141,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Principal</h1>
+              <h1 class="m-0 text-dark">Busca de Usuários</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -152,14 +107,62 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <h5 class="card-title">Sistema de Gestão de Biblioteca</h5>
-
-                  <p class="card-text">
-                    Seja bem-vindo
-                  </p>
+                  <form name="f1" action="#" method="POST">
+                    <div class="form-group"><a href="frmcad.php" class="btn btn-lg btn-outline-success float-right"><i
+                          class="fa fa-plus"></i>&nbsp;Novo</a>
+                      <a href="../principal.php" class="btn btn-lg btn-default"><i
+                          class="fa fa-arrow-left"></i>&nbsp;Voltar</a>
+                    </div>
+                </div>
+                <div class="form-group mr-2 ml-2">
+                  <label for="">Informe um nome para pesquisa</label>
+                  <div class="input-group mb-2">
+                    <input name="" type="text" class="form-control" placeholder="Digite aqui um nome para busca"
+                      required>
+                    <span class="input-group-btn"><button class="btn btn-outline-primary"><i
+                          class="fa fa-search"></i>&nbsp;Buscar</button></span>
+                  </div>
+                  <!-- Divisória da tabela -->
+                  <div style="overflow: scroll; height: 300px;">
+                    <table class="table table-hover">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>Id</th>
+                          <th>Nome</th>
+                          <th>E-mail</th>
+                          <th>Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>0</td>
+                          <td>Teste</td>
+                          <td>teste@teste.com</td>
+                          <td>
+                            <a href="frmalt.html" class="btn btn-sm btn-outline-primary"><i
+                                class="fa fa-edit"></i>&nbsp;Alterar</a>
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i
+                                class="fa fa-trash"></i>&nbsp;Excluir</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>0</td>
+                          <td>Teste</td>
+                          <td>teste@teste.com</td>
+                          <td>
+                            <a href="#" class="btn btn-sm btn-outline-primary"><i
+                                class="fa fa-edit"></i>&nbsp;Alterar</a>
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i
+                                class="fa fa-trash"></i>&nbsp;Excluir</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </form>
                 </div>
               </div><!-- /.card -->
             </div>
@@ -202,11 +205,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- REQUIRED SCRIPTS -->
 
   <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.min.js"></script>
+  <script src="../dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

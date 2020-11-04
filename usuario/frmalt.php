@@ -96,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Cadastro de Usuários</h1>
+              <h1 class="m-0 text-dark">Alteração de Usuários</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -112,8 +112,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card-body">
                   <form id="" name="f1" action="#" method="POST">
                     <div class="form-group">
-                      <a href="frmbusca.html" class="btn btn-lg btn-default"><i
+                      <a href="frmbusca.php" class="btn btn-lg btn-default"><i
                           class="fa fa-arrow-left"></i>&nbsp;Voltar</a>
+                    </div>
+                    <div class="form-group mr-2 ml-2">
+                      <div class="col-md-12">
+                        <label for="">ID</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-append">
+                            <div class="input-group-text">
+                              <span class="fa fa-info"></span>
+                            </div>
+                          </div>
+                          <input value="1" name="id" type="text" class="form-control" disabled>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group mr-2 ml-2">
                       <div class="col-md-12">
@@ -124,7 +137,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-user"></span>
                             </div>
                           </div>
-                          <input name="nome" type="text" class="form-control" placeholder="Informe o nome" required>
+                          <input value="Usuário Teste" name="nome" type="text" class="form-control"
+                            placeholder="Informe o nome" required>
                         </div>
                       </div>
                     </div>
@@ -137,7 +151,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-envelope"></span>
                             </div>
                           </div>
-                          <input name="email" type="email" class="form-control" placeholder="Informe o e-mail" required>
+                          <input value="usuarioteste@usuario.com" name="email" type="email" class="form-control"
+                            placeholder="Informe o e-mail" required>
                         </div>
                       </div>
                     </div>
@@ -150,16 +165,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-lock"></span>
                             </div>
                           </div>
-                          <input name="senha" type="password" class="form-control" placeholder="Informe a senha"
-                            required>
+                          <input value="senha" name="senha" type="password" class="form-control"
+                            placeholder="Informe a senha" required>
                         </div>
                       </div>
                     </div>
                     <hr>
                     <div class="form-group">
                       <button type="submit" class="btn btn-lg btn-outline-success"><i
-                          class="fa fa-save"></i>&nbsp;Salvar</button>
-                      <a href="frmbusca.html" class="btn btn-lg btn-outline-danger"><i
+                          class="fa fa-save"></i>&nbsp;Atualizar</button>
+                      <a href="frmbusca.php" class="btn btn-lg btn-outline-danger"><i
                           class="fa fa-times"></i>&nbsp;Cancelar</a>
                     </div>
                     <!-- Divisória da tabela -->
