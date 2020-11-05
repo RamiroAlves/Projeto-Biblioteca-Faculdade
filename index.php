@@ -63,6 +63,20 @@
             </div>
             <!-- /.col -->
           </div>
+
+          <?php
+              echo '<hr>';
+              if(isset($_GET['mess'])){
+                if($_GET['mess'] == 'erro'){
+                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Atenção!</strong> Dados incorretos.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                }
+              }
+          ?>
         </form>
 
         <!-- /.social-auth-links -->

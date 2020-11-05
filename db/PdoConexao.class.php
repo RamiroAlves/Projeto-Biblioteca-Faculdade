@@ -8,7 +8,7 @@ class PdoConexao{
 
       try{
         // Dados para conexao com o mysql
-        $dns = 'mysql:host=localhost;dbname=biblioteca';
+        $dns = 'mysql:host=localhost;dbname=dbbiblioteca';
         $usuario = 'root';
         $senha = '';
 

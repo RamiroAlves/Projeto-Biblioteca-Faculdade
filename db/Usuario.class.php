@@ -27,16 +27,16 @@ class Usuario{
 
   // Métodos set
   public function setId($id){
-    $this->id = $id
+    $this->id = $id;
   }
   public function setNome($nome){
-    $this->nome = $nome
+    $this->nome = $nome;
   }
   public function setEmail($email){
-    $this->emai = $email
+    $this->emai = $email;
   }
   public function setSenha($senha){
-    $this->senha = $senha
+    $this->senha = $senha;
   }
 
 }

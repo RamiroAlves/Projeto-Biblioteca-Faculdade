@@ -155,6 +155,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-lg-6">
               <div class="card card-primary card-outline">
                 <div class="card-body">
+                  <?php
+                      echo '<hr>';
+                      if(isset($_GET['mess'])){
+                        if($_GET['mess'] == 'ok'){
+                            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Atenção!</strong> Login realizado com sucesso!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>';
+                        }
+                      }
+                  ?>
                   <h5 class="card-title">Sistema de Gestão de Biblioteca</h5>
 
                   <p class="card-text">
