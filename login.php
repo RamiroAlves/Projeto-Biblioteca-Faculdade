@@ -14,8 +14,10 @@
     if($login == false){
       header('Location: index.php?mess=erro');
     } else{
-     // echo 'Usuário existe';
-      //var_dump($login);
+      // Inicializando a sessão
+     session_start();
+     //Criando uma variável de sessão chamada login
+     $_SESSION['login'] = 'ok';
       header('Location: principal.php?mess=ok');
     }
   }

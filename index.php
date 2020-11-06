@@ -66,10 +66,34 @@
 
           <?php
               echo '<hr>';
+              //Verificando a existencia da variavel mess chegando por GET
               if(isset($_GET['mess'])){
+                // Verifica se o valor de mess é erro
                 if($_GET['mess'] == 'erro'){
+                  //Escreve a menssagem de login errado
                     echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>Atenção!</strong> Dados incorretos.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                }
+              
+                  // Verifica se valor é sem sessão
+                if($_GET['mess'] == 'nosession'){
+                  //Escreve mensagem para fazer login
+                    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Atenção!</strong> Faça login para entrar.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                }
+                //Verifica o valor logout
+                if($_GET['mess'] == 'logout'){
+                  //Escreve mensagem de logout
+                    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Atenção!</strong> Logout realizado com sucesso.
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>

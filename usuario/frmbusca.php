@@ -1,3 +1,6 @@
+<?php
+    include('testasessao.php');
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -75,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="../sair.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Sair
@@ -185,7 +188,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="#">
           <p><i class="fa fa-cog"></i> Configurações</p>
         </a>
-        <a href="#">
+        <a href="../sair.php">
           <p><i class="fa fa-sign-out-alt"></i> Sair</p>
         </a>
       </div>

@@ -8,8 +8,31 @@ class UsuarioCRUD implements InterfaceCRUD{
           $this->tabela = 'tbusuario';
       }
 
-      public function salvar($object){
-        return true;
+      public function salvar($objeto){
+        $id = null;
+        $nome = $objeto->getNome();
+        $email = $objeto->getEmail();
+        $senha = $objeto->getSenha();
+        $sql = "insert into {$this->tabela} (id_usuario, nome, email, senha) values (:id, :nome, :email, :senha)";
+        try{
+            $operacao = $this->instanciaConexaoPdoAtiva->prepare($sql);
+            $operacao->bindValue(":id", $id, PDO::PARAM_INT);
+            $operacao->bindValue(":nome", $nome, PDO::PARAM_STR);
+            $operacao->bindValue(":email", $email, PDO::PARAM_STR);
+            $operacao->bindValue(":senha", $senha, PDO::PARAM_STR);
+            // Testando o insert
+            if($operacao->execute()){
+                if($operacao->rowCount() > 0){
+                    return true;
+                }else{
+                  return false;
+                }
+            }else{
+              return false;
+            }
+        }catch(PDOException $excecao){
+            echo $excecao->getMessage();
+        }
       }
 
       public function atualizar($object){
