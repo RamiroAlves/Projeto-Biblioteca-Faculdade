@@ -113,7 +113,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-lg-12">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <form name="f1" action="#" method="POST">
+                <?php
+                    if(isset($_GET['mess'])){
+                        //verifica se o valor de mess é erro
+                        if($_GET['mess'] == 'deleteok'){
+                        //escreve mensagem de login errado
+                        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Atenção!</strong> Registro excluído com sucesso!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>';
+                        }
+                        if($_GET['mess'] == 'deleteerro'){
+                        //escreve mensagem de login errado
+                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Atenção!</strong> Erro ao excluir registro!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>';
+                        }
+                    }
+                ?>
+                  <form name="f1" action="frmbusca.php" method="POST">
                     <div class="form-group"><a href="frmcad.php" class="btn btn-lg btn-outline-success float-right"><i
                           class="fa fa-plus"></i>&nbsp;Novo</a>
                       <a href="../principal.php" class="btn btn-lg btn-default"><i
@@ -123,7 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="form-group mr-2 ml-2">
                   <label for="">Informe um nome para pesquisa</label>
                   <div class="input-group mb-2">
-                    <input name="" type="text" class="form-control" placeholder="Digite aqui um nome para busca"
+                    <input id="texto" name="texto" type="text" class="form-control" placeholder="Digite aqui um nome para busca"
                       required>
                     <span class="input-group-btn"><button class="btn btn-outline-primary"><i
                           class="fa fa-search"></i>&nbsp;Buscar</button></span>
@@ -133,30 +156,52 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <table class="table table-hover">
                       <thead class="thead-light">
                         <tr>
-                          <th>Id</th>
+                          <th>ID</th>
                           <th>Nome</th>
                           <th>E-mail</th>
                           <th>Ações</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                            if(isset($_POST['texto'])){
+                              include('../db/PdoConexao.class.php');
+                              include('../db/InterfaceCRUD.class.php');
+                              include('../db/Usuario.class.php');
+                              include('../db/UsuarioCRUD.class.php');
+
+                              //Criando objeto da classe UsuaioCRUD
+                              $usuarioCRUD = new UsuarioCRUD();
+
+                              $sql = "select * from tbusuario where nome like '%".$_POST['texto']."%' ";
+
+                              //Dados da conculta
+                              $busca = $usuarioCRUD->consultar($sql);
+
+                              //echo '<pre>';
+                              //var_dump($busca);
+                              foreach($busca as $linhas){
+                                  echo '
+                                  <tr>
+                                      <td>'.$linhas['id_usuario'].'</td>
+                                      <td>'.$linhas['nome'].'</td>
+                                      <td>'.$linhas['email'].'</td>
+                                      <td>
+                                        <a href="frmalt.php" class="btn btn-sm btn-outline-primary"><i
+                                            class="fa fa-edit"></i>&nbsp;Alterar</a>
+                                        <a href="../controle/usuario/apagar.php?id='.$linhas['id_usuario'].'" title="Excluir" class="btn btn-sm btn-outline-danger"><i
+                                            class="fa fa-trash"></i>&nbsp;Excluir</a>
+                                      </td>
+                                    </tr>';
+                              }
+                            }
+                        ?>
                         <tr>
                           <td>0</td>
                           <td>Teste</td>
                           <td>teste@teste.com</td>
                           <td>
-                            <a href="frmalt.html" class="btn btn-sm btn-outline-primary"><i
-                                class="fa fa-edit"></i>&nbsp;Alterar</a>
-                            <a href="#" class="btn btn-sm btn-outline-danger"><i
-                                class="fa fa-trash"></i>&nbsp;Excluir</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>0</td>
-                          <td>Teste</td>
-                          <td>teste@teste.com</td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-outline-primary"><i
+                            <a href="frmalt.php" class="btn btn-sm btn-outline-primary"><i
                                 class="fa fa-edit"></i>&nbsp;Alterar</a>
                             <a href="#" class="btn btn-sm btn-outline-danger"><i
                                 class="fa fa-trash"></i>&nbsp;Excluir</a>

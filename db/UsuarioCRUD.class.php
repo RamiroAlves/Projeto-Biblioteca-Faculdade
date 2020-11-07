@@ -44,7 +44,38 @@ class UsuarioCRUD implements InterfaceCRUD{
       }
 
       public function apagar($id){
-        return true;
+          $sql = "delete from {$this->tabela} where id_usuario=:id";
+          try{
+            $operacao = $this->instanciaConexaoPdoAtiva->prepare($sql);
+            $operacao->bindValue(":id", $id, PDO::PARAM_INT);
+            if($operacao->execute()){
+                if($operacao->rowCount()>0){
+                  return true;
+                }else{
+                  return false;
+                } 
+            }else{
+                return false;
+            }
+          }catch(PDOException $excecao){
+            echo $excecao->getMessage();
+          }
+      }
+
+      public function consultar($sql){
+          try{
+              //Preparando sql
+              $operacao= $this->instanciaConexaoPdoAtiva->prepare($sql);
+              //Execultando a consulta
+              $operacao->execute();
+              //Convertendo a consuta em array
+              $linhas = $operacao->fetchAll();
+              //Retornando o array como resultado
+              return $linhas;
+          }catch(PDOException $excecao){
+              //Mostrando o erro
+              echo $excecao->getMessage();
+          }
       }
 
       public function login($email, $senha){
