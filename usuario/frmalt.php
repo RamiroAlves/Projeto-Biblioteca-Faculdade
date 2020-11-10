@@ -1,5 +1,16 @@
 <?php
     include('testasessao.php');
+    if(isset($_GET['id'])){
+      include('../db/PdoConexao.class.php');
+      include('../db/InterfaceCRUD.class.php');
+      include('../db/Usuario.class.php');
+      include('../db/UsuarioCRUD.class.php');
+      // Criando um objeto usuarioCRUD
+      $usuarioCRUD = new UsuarioCRUD();
+      //Buscando usuario no banco de dados
+      $busca = $usuarioCRUD->ler($_GET['id']);
+      //var_dump($busca);
+    }
 ?>
 <!DOCTYPE html>
 <!--
@@ -113,7 +124,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-lg-12">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <form id="" name="f1" action="#" method="POST">
+                  <form id="" name="f1" action="../controle/usuario/atualizar.php" method="POST" onsubmit="return validar()">
                     <div class="form-group">
                       <a href="frmbusca.php" class="btn btn-lg btn-default"><i
                           class="fa fa-arrow-left"></i>&nbsp;Voltar</a>
@@ -127,7 +138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-info"></span>
                             </div>
                           </div>
-                          <input value="1" name="id" type="text" class="form-control" disabled>
+                          <input value="<?php echo $busca->getId(); ?>" name="id" type="text" class="form-control" readonly="true">
                         </div>
                       </div>
                     </div>
@@ -140,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-user"></span>
                             </div>
                           </div>
-                          <input value="Usuário Teste" name="nome" type="text" class="form-control"
+                          <input value="<?php echo $busca->getNome(); ?>" name="nome" type="text" class="form-control"
                             placeholder="Informe o nome" required>
                         </div>
                       </div>
@@ -154,7 +165,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-envelope"></span>
                             </div>
                           </div>
-                          <input value="usuarioteste@usuario.com" name="email" type="email" class="form-control"
+                          <input value="<?php echo $busca->getEmail(); ?>" name="email" type="email" class="form-control"
                             placeholder="Informe o e-mail" required>
                         </div>
                       </div>
@@ -168,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <span class="fa fa-lock"></span>
                             </div>
                           </div>
-                          <input value="senha" name="senha" type="password" class="form-control"
+                          <input value="<?php echo $busca->getSenha(); ?>" name="senha" type="password" class="form-control"
                             placeholder="Informe a senha" required>
                         </div>
                       </div>
@@ -230,6 +241,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../dist/js/adminlte.min.js"></script>
+  <script>
+      function validar(){
+        if(confirm('Deseja realmente atualizar o registro?')){
+          return true;
+        }else{
+          return false;
+        }
+      }
+  </script>
 </body>
 
 </html>

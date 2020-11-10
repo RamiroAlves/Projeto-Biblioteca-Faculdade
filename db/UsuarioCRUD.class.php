@@ -35,12 +35,46 @@ class UsuarioCRUD implements InterfaceCRUD{
         }
       }
 
-      public function atualizar($object){
-        return true;
+      public function atualizar($objeto){
+        $id = $objeto->getId();
+        $nome = $objeto->getNome();
+        $email = $objeto->getEmail();
+        $senha = $objeto->getSenha();
+        $sql = "update {$this->tabela} sel nome :nome, email :email, senha :senha where id_usuario= :id";
+        try{
+          $operacao = $this->instanciaConexaoPdoAtiva->prepare($sql);
+          $operacao->bindValue(":id", $id, PDO::PARAM_INT);
+          $operacao->bindValue(":nome", $nome, PDO::PARAM_STR);
+          $operacao->bindValue(":email", $email, PDO::PARAM_STR);
+          $operacao->bindValue(":senha", $senha, PDO::PARAM_STR);
+          if($operacao->execute()){
+              return true;
+          }else{
+            return false;
+          }
+        }catch(PDOException $excecao){
+          echo $excecao->getMessage();
+        }
       }
 
       public function ler($id){
-        return true;
+        $sql = "select * from {$this->tabela} where id_usuario= :id";
+        try{
+          $operacao = $this->instanciaConexaoPdoAtiva->prepare($sql);
+          $operacao->bindValue(":id", $id, PDO::PARAM_INT);
+          $operacao->execute();
+          $linha = $operacao->fetch(PDO::FETCH_OBJ);
+          $nome=$linha->nome;
+          $email=$linha->email;
+          $senha=$linha->senha;
+          //Objeto da classe usuario
+          $usuario = new Usuario($nome, $email, $senha);
+          $usuario->setId($id);
+          return $usuario;
+
+        }catch(PDOException $excecao){
+          echo $excecao->getMessage();
+        }
       }
 
       public function apagar($id){

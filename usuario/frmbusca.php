@@ -187,7 +187,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                       <td>'.$linhas['nome'].'</td>
                                       <td>'.$linhas['email'].'</td>
                                       <td>
-                                        <a href="frmalt.php" class="btn btn-sm btn-outline-primary"><i
+                                        <a href="frmalt.php?id='.$linhas['id_usuario'].'" titulo="Alterar" class="btn btn-sm btn-outline-primary"><i
                                             class="fa fa-edit"></i>&nbsp;Alterar</a>
                                         <a href="../controle/usuario/apagar.php?id='.$linhas['id_usuario'].'" title="Excluir" class="btn btn-sm btn-outline-danger"><i
                                             class="fa fa-trash"></i>&nbsp;Excluir</a>

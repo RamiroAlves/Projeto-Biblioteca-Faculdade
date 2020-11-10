@@ -133,8 +133,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div>';
                         }
                       }
+                      if(isset($_GET['mess'])){
+                        if($_GET['mess'] == 'ok'){
+                            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Atenção!</strong>Dados atualiados com sucesso!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>';
+                        }
+                        if($_GET['mess'] == 'erro'){
+                            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Atenção!</strong>Erro ao atualizar!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>';
+                        }
+                      }
                   ?>
-                  <form id="" name="f1" action="../controle/usuario/salvar.php" method="POST">
+                  <form id="" name="f1" action="../controle/usuario/salvar.php" method="POST" onsubmit="return validar()">
                     <div class="form-group">
                       <a href="frmbusca.php" class="btn btn-lg btn-default"><i
                           class="fa fa-arrow-left"></i>&nbsp;Voltar</a>
@@ -236,6 +254,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../dist/js/adminlte.min.js"></script>
+  <script>
+      function validar(){
+        if(confirm('Deseja realmente salvar o registro?')){
+          return true;
+        }else{
+          return false;
+        }
+      }
+  </script>
 </body>
 
 </html>
