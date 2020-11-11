@@ -67,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Usuário</a>
+            <a href="#" class="d-block">Acervo</a>
           </div>
         </div>
 
@@ -99,7 +99,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Busca de Usuários</h1>
+              <h1 class="m-0 text-dark">Busca de Acervo</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -157,8 +157,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <thead class="thead-light">
                         <tr>
                           <th>ID</th>
-                          <th>Nome</th>
-                          <th>E-mail</th>
+                          <th>Título</th>
+                          <th>Autor</th>
                           <th>Ações</th>
                         </tr>
                       </thead>
@@ -167,29 +167,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             if(isset($_POST['texto'])){
                               include('../db/PdoConexao.class.php');
                               include('../db/InterfaceCRUD.class.php');
-                              include('../db/Usuario.class.php');
-                              include('../db/UsuarioCRUD.class.php');
+                              include('../db/Acervo.class.php');
+                              include('../db/AcervoCRUD.class.php');
 
                               //Criando objeto da classe UsuaioCRUD
-                              $usuarioCRUD = new UsuarioCRUD();
+                              $acervoCRUD = new AcervoCRUD();
 
-                              $sql = "select * from tbusuario where nome like '%".$_POST['texto']."%' ";
+                              $sql = "select * from tbacervo where titulo like '%".$_POST['texto']."%' ";
 
                               //Dados da conculta
-                              $busca = $usuarioCRUD->consultar($sql);
+                              $busca = $acervoCRUD->consultar($sql);
 
                               //echo '<pre>';
                               //var_dump($busca);
                               foreach($busca as $linhas){
                                   echo '
                                   <tr>
-                                      <td>'.$linhas['id_usuario'].'</td>
-                                      <td>'.$linhas['nome'].'</td>
-                                      <td>'.$linhas['email'].'</td>
+                                      <td>'.$linhas['id_acervo'].'</td>
+                                      <td>'.$linhas['titulo'].'</td>
+                                      <td>'.$linhas['autor'].'</td>
                                       <td>
-                                        <a href="frmalt.php?id='.$linhas['id_usuario'].'" titulo="Alterar" class="btn btn-sm btn-outline-primary"><i
+                                        <a href="frmalt.php?id='.$linhas['id_acervo'].'" titulo="Alterar" class="btn btn-sm btn-outline-primary"><i
                                             class="fa fa-edit"></i>&nbsp;Alterar</a>
-                                        <a href="../controle/usuario/apagar.php?id='.$linhas['id_usuario'].'" onclick="validarDelete()" title="Excluir" class="btn btn-sm btn-outline-danger"><i
+                                        <a href="../controle/acervo/apagar.php?id='.$linhas['id_acervo'].'" onclick="validarDelete()" title="Excluir" class="btn btn-sm btn-outline-danger"><i
                                             class="fa fa-trash"></i>&nbsp;Excluir</a>
                                       </td>
                                     </tr>';
